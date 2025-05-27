@@ -16,6 +16,7 @@ public:
     ~MainWindow();
 
 private slots:
+    void on_opClearOne_pressed();
     void digit_pressed();
     void on_opClear_pressed();
     void on_opEqual_pressed();
@@ -31,3 +32,4 @@ private:
 };
 
 #endif // MAINWINDOW_H
+
