@@ -4,6 +4,7 @@
 #include "support.h"
 using namespace std;
 bool calculated = false;
+double number;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -141,7 +142,6 @@ void MainWindow::change_sign() {
         return;
     QString lastToken = tokens.last();
     bool isNumber;
-    double number;
     if (lastToken.startsWith("(-") && lastToken.endsWith(")")) {
         QString numStr = lastToken.mid(2, lastToken.length()-3);
         number = numStr.toDouble(&isNumber);
