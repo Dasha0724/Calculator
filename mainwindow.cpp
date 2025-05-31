@@ -157,7 +157,8 @@ void MainWindow::change_sign() {
         } else {
             if (tokens.size() > 1) {
                 QString prevToken = tokens[tokens.size()-2];
-                if (prevToken == "/" || prevToken == "*" || prevToken == "^") {
+                if (prevToken == "/" || prevToken == "*" || prevToken == "^"|| 
+                    prevToken == "+" || prevToken == "-") {
                     tokens[tokens.size()-1] = "(-" + lastToken + ")";
                 } else {
                     tokens[tokens.size()-1] = "-" + lastToken;
@@ -231,7 +232,6 @@ void MainWindow::unary_operation() {
     if (button == ui->opSqrt) {
         QStringList tokens = currentText.split(' ', Qt::SkipEmptyParts);
         if (!tokens.isEmpty() && tokens.last() == "√") {
-            // Уже есть √ - ничего не делаем
             return;
         }
 
