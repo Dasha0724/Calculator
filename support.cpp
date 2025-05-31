@@ -10,13 +10,13 @@ const char SQRT_SYMBOL = 'r';
 
 string scanNum(int &i, const string &str) {
     string value;
-    while(i < str.length() && str[i] == ' ')i++;
-    if (i < str.length() && str[i] == '-' && (i == 0 || str[i-1] == '(' || isOperator(str[i-1]))) {
+    while(i < (int)str.length() && str[i] == ' ')i++;
+    if (i < (int)str.length() && str[i] == '-' && (i == 0 || str[i-1] == '(' || isOperator(str[i-1]))) {
         value += str[i++];
     }
-    while(i < str.length() && str[i] == ' ') i++;
+    while(i < (int)str.length() && str[i] == ' ') i++;
     bool Dot = false;
-    while(i < str.length() && (isdigit(str[i]) || str[i] == '.')) {
+    while(i < (int)str.length() && (isdigit(str[i]) || str[i] == '.')) {
         if(str[i] == '.') {
             if(Dot)
                 break;
@@ -42,7 +42,7 @@ int prec(char c) {
 string infixToPostfix(string s) {
     stack<char> st;
     string result;
-    for(int i = 0; i < s.length(); i++) {
+    for(int i = 0; i < (int)s.length(); i++) {
         char c = s[i];
         if(c == ' ')
             continue;
